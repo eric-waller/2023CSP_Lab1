@@ -28,14 +28,14 @@ def setupBox():
     box.forward(630)
     box.hideturtle()
 
-
+# begin x = -490  begin y = -300
 # Code for 80 point version goes here
-def v80():
-   lines.goto(-490, -300)
-   start_x = -490
-   start_y = -300
-   end_x = 490
-   end_y = -290
+def v80(begin_x, begin_y):
+   start_x = begin_x
+   start_y = begin_y
+   lines.goto(start_x, start_y)
+   end_x = start_x + 980
+   end_y = start_y + 10
    for line in range(32):
        lines.goto(end_x, end_y)
        lines.goto(start_x, start_y)
@@ -47,14 +47,14 @@ def v80():
 
 
 # Code for the 90 point version goes here
-def v90():
+def v90(begin_x, begin_y):
     # Calling the 80 point function - don't copy-paste from earlier method!!
-    v80()
-    lines.goto(490, -300)
-    start_x = 490
-    start_y = -300
-    end_x = -490
-    end_y = -290
+    v80(begin_x, begin_y)
+    start_x = begin_x * -1
+    start_y = begin_y
+    lines.goto(start_x, start_y)
+    end_x = start_x - 980
+    end_y = start_y + 10
     for line in range(32):
         lines.goto(end_x, end_y)
         lines.goto(start_x, start_y)
@@ -66,25 +66,25 @@ def v90():
 
 
 # Code for the 100 point version here
-def v100():
+def v100(begin_x, begin_y):
     # Calling the 90 point function - don't copy-paste from earlier method!!
-    v90()
-    lines.goto(-490, 330)
-    start_x = -490
-    start_y = 330
-    end_x = 490
-    end_y = 320
+    v90(begin_x, begin_y)
+    start_x = begin_x
+    start_y = (begin_y * -1) + 30
+    lines.goto(start_x, start_y)
+    end_x = start_x + 980
+    end_y = start_x - 10
     for line in range(32):
         lines.goto(end_x, end_y)
         lines.goto(start_x, start_y)
         start_x += 30
         end_y -= 20
         lines.goto(start_x, start_y)
-    lines.goto(490, 330)
-    start_x = 490
-    start_y = 330
-    end_x = -490
-    end_y = 320
+    start_x = begin_x * -1
+    start_y = (begin_y * -1) + 30
+    lines.goto(start_x, start_y)
+    end_x = start_x - 980
+    end_y = start_y - 10
     for line in range(32):
         lines.goto(end_x, end_y)
         lines.goto(start_x, start_y)
@@ -95,13 +95,14 @@ def v100():
 
 
 
+
 # Code for the 110 point version here
-def v110():
+def v110(begin_x, begin_y):
     # Calling the 100 point function - don't copy-paste from earlier method!!
-    v100()
-    lines.goto(-290, -100)
+    v100(begin_x, begin_y)
     start_x = -290
     start_y = -100
+    lines.goto(-290, -100)
     end_x = 290
     end_y = -90
     for line in range(32):
@@ -110,6 +111,40 @@ def v110():
         start_x += 18
         end_y += 7
         lines.goto(start_x, start_y)
+    start_x = 290
+    start_y = -100
+    lines.goto(290, -100)
+    end_x = -290
+    end_y = -90
+    for line in range(32):
+        lines.goto(end_x, end_y)
+        lines.goto(start_x, start_y)
+        start_x -= 18
+        end_y += 7
+        lines.goto(start_x, start_y)
+    start_x = -290
+    start_y = 130
+    lines.goto(-290, 130)
+    end_x = 290
+    end_y = 120
+    for line in range(32):
+        lines.goto(end_x, end_y)
+        lines.goto(start_x, start_y)
+        start_x += 18
+        end_y -= 7
+        lines.goto(start_x, start_y)
+    start_x = 290
+    start_y = 130
+    lines.goto(290, 130)
+    end_x = -290
+    end_y = 120
+    for line in range(32):
+        lines.goto(end_x, end_y)
+        lines.goto(start_x, start_y)
+        start_x -= 18
+        end_y -= 7
+        lines.goto(start_x, start_y)
+
 
 
 setupScreen()
